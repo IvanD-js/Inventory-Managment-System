@@ -16,6 +16,7 @@ export default function ProductTable({ refreshKey }) {
     try {
       const res = await api.get("/");
       setProductos(res.data.data ?? res.data);
+      console.log("Respuesta del backend:", res.data);
     } catch (err) {
       setError("Error al cargar productos");
     } finally {
@@ -75,7 +76,7 @@ export default function ProductTable({ refreshKey }) {
           </tr>
         </thead>
         <tbody>
-          {productos?.map((p) => (
+          {Array.isArray(productos) ? productos.map((p) => (
             <tr key={p._id}>
              
               {/* <td style={{ fontSize: 12 }}>{p._id}</td> */}
@@ -124,8 +125,7 @@ export default function ProductTable({ refreshKey }) {
                 {/* <button className="delete-btn" onClick={() => eliminarProducto(p._id)}>Eliminar</button> */}
               </td>
             </tr>
-          ))}
-          {productos.length === 0 && (
+          )) : (
             <tr><td colSpan="5">No hay productos</td></tr>
           )}
         </tbody>
