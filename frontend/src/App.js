@@ -1,34 +1,30 @@
 import "./App.css";
 import ProductForm from "./components/ProductForm";
-import ProductTable from "./components/ProductTable";
 import { useState } from "react";
 import logomongo from "./assets/logomongo.png";
 import logoreact from "./assets/logoreact.png";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import ProductTable from "./components/ProductTable";
+import Dashboard from "./pages/Dashboard";
+import Products from "./pages/Products";
+
 
 function App() {
   const [recargar, setRecargar] = useState(false);
   const actualizar = () => setRecargar(!recargar);
 
   return (
-    <div className="container">
-        <img
-            src={logomongo}
-            alt="logoMongoDB"
-            width="110"
-            height="40"
-            className="d-inline-block align-top"
-        />
-         <img
-            src={logoreact}
-            alt="logoReact"
-            width="40"
-            height="40"
-            className="logo-react"
-        />
-      <h1>Gestión de Productos</h1>
-      <ProductForm onProductAdded={actualizar} />
-      <ProductTable key={recargar} />
-    </div>
+
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/products" element={<Products />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

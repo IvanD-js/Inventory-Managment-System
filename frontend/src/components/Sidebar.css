@@ -1,0 +1,45 @@
+/* SIDEBAR FIJO */
+.sidebar {
+  text-align: center;
+  width: 170px;
+  height: 100vh;
+  background: #1e1b4b; /* azul índigo oscuro */
+  color: white;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* TÍTULO */
+.sidebar h2 {
+  margin-bottom: 30px;
+}
+
+/* MENÚ */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.sidebar li:hover {
+  background: #3730a3;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #1e1b4b;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 11%;
+}

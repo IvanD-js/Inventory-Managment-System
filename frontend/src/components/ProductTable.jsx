@@ -5,9 +5,10 @@ import api from "../services/api";
 export default function ProductTable({ refreshKey }) {
   const [productos, setProductos] = useState([]);
   const [editando, setEditando] = useState(null);
-  const [form, setForm] = useState({ nombre: "", precio: "", stock: "" });
+  const [form, setForm] = useState({ codigo: "", nombre: "", precio: "", stock: "" });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const role = localStorage.getItem("role");
 
   const obtenerProductos = async () => {
     setLoading(true);
@@ -27,6 +28,7 @@ export default function ProductTable({ refreshKey }) {
   }, [refreshKey]);
 
   const eliminarProducto = async (id) => {
+  
     const ok = window.confirm("¿Estás seguro que deseas eliminar este producto?");
     if (!ok) return;
     try {
@@ -64,7 +66,7 @@ export default function ProductTable({ refreshKey }) {
       <table className="product-table">
         <thead>
           <tr>
-            <th>ID</th>
+            {/* <th>ID</th> */}
             <th>Codigo</th>
             <th>Nombre</th>
             <th>Precio ($)</th>
@@ -75,7 +77,8 @@ export default function ProductTable({ refreshKey }) {
         <tbody>
           {productos.map((p) => (
             <tr key={p._id}>
-              <td style={{ fontSize: 12 }}>{p._id}</td>
+             
+              {/* <td style={{ fontSize: 12 }}>{p._id}</td> */}
               <td>
                 {editando === p._id ? (
                   <input
@@ -115,7 +118,10 @@ export default function ProductTable({ refreshKey }) {
                 ) : (
                   <button className="edit-btn" onClick={() => iniciarEdicion(p)}>Editar</button>
                 )}
-                <button className="delete-btn" onClick={() => eliminarProducto(p._id)}>Eliminar</button>
+                {role === "admin" && (
+                  <button className="delete-btn" onClick={() => eliminarProducto(p._id)}>Eliminar</button>
+                )}
+                {/* <button className="delete-btn" onClick={() => eliminarProducto(p._id)}>Eliminar</button> */}
               </td>
             </tr>
           ))}

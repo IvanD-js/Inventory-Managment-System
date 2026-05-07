@@ -1,0 +1,87 @@
+.register-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1e1b4b; /* azul índigo oscuro */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.register-card {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.register-card h1 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.register-card p {
+  margin-bottom: 20px;
+  color: #777;
+}
+
+.register-card input,
+.register-card select {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: 0.3s;
+}
+
+.register-card input:focus,
+.register-card select:focus {
+  border-color: #2a5298;
+  box-shadow: 0 0 5px rgba(42,82,152,0.5);
+}
+
+.register-card button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background: #2a5298;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.register-card button:hover {
+  background: #1e3c72;
+}
+
+.link {
+  display: block;
+  margin-top: 15px;
+  color: #2a5298;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.error {
+  display: block;
+  color: red;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.success {
+  display: block;
+  color: green;
+  margin-bottom: 10px;
+  font-size: 14px;
+}

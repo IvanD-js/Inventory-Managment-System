@@ -8,6 +8,7 @@ import {
   obtenerProducto,
   obtenerPorCodigo
 } from "../controllers/productoController.js";
+import { proteger, esAdmin } from "../middleware/auth.js";
 
 const router = express.Router();
 
@@ -21,6 +22,6 @@ router.get("/:id", obtenerProducto);
 
 router.post("/", agregarProducto);
 router.put("/:id", editarProducto);
-router.delete("/:id", eliminarProducto);
+router.delete("/:id", proteger, esAdmin, eliminarProducto);
 
 export default router;

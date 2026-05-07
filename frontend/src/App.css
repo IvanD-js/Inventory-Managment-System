@@ -1,93 +1,71 @@
-/* Estilos generales */
+/* ====== BASE ====== */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: oklab(33.687% -0.08416 0.05603 / 0.836);
+  font-family: 'Inter', sans-serif;
   margin: 0;
-  padding: 0;
+  background: #eef2ff;
 }
 
+/* ====== CONTENIDO PRINCIPAL ====== */
+.main-content {
+  margin-left: 220px; /* Espacio para el sidebar */
+  padding: 20px;
+  
+}
+
+@media (min-width: 768px) {
+  .main-content {
+    margin-left: 220px;
+  }
+}
+
+/* ====== TARJETAS ====== */
 .container {
-  position: relative;
-  width: 90%;
-  max-width: 800px;
-  margin: 40px auto;
-  background: #ffffff;
-  padding: 25px 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
-@keyframes logogiratorio{
-  from {
-    transform: rotate(0deg);
-  }
-  to{
-    transform: rotate(360deg);
-  }
-}
-
-.logo-react {
-    /* Posiciona la imagen absolutamente con respecto al contenedor padre */
-  position: absolute; 
-  /* La ubica en la esquina superior derecha */
-  top: 0; 
-  right: 0; 
-  /* Ajusta el tamaño de la imagen según sea necesario */
-  width: 50px; 
-  height: auto;
-  padding: 20px 20px;
-  animation-name: logogiratorio;
-  animation-duration: 5s; /* Duración de cada giro */
-  animation-iteration-count: infinite; /* Repetir la animación infinitamente */
-  animation-timing-function: linear; /* Mantiene un ritmo constante */
-}
-
+/* ====== TITULOS ====== */
 h1 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 25px;
+  color: #1e293b;
 }
 
-/* Formulario */
+/* ====== FORMULARIO ====== */
 .form {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .form input {
   padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  border-radius: 8px;
+  border: 1px solid #c7d2fe;
+  flex: 1;
+}
+
+.form input:focus {
   outline: none;
-  flex: 1 1 30%;
-  min-width: 150px;
-  font-size: 14px;
+  border-color: #6366f1;
 }
 
-.form input:hover {
-  border: 3px solid  oklab(33.687% -0.08416 0.05603 / 0.836);
-}
-
+/* BOTON PRINCIPAL */
 .form button {
-  background-color: oklab(33.687% -0.08416 0.05603 / 0.836);
+  background: #4f46e5;
   color: white;
   border: none;
-  padding: 10px 14px;
-  border-radius: 6px;
+  padding: 10px 16px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s;
-  width: 100px;
-  font-size: 14px;
 }
 
 .form button:hover {
-   border: 3px solid whitesmoke;
+  background: #4338ca;
 }
 
-/* Tabla */
+/* ====== TABLA ====== */
 .table-container {
   overflow-x: auto;
 }
@@ -95,82 +73,104 @@ h1 {
 .product-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 15px;
-}
-
-.product-table th,
-.product-table td {
-  border: 1px solid #e0e0e0;
-  padding: 10px;
-  text-align: center;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .product-table th {
-  background-color: oklab(33.687% -0.08416 0.05603 / 0.836);
+  text-align: center;
+  background: #4f46e5;
   color: white;
+  padding: 12px;
 }
 
-.product-table tr:nth-child(even) {
-  background-color: #f9f9f9;
+.product-table td {
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid #e5e7eb;
 }
 
-/* Botones dentro de la tabla */
+/* FILAS */
+.product-table tbody tr {
+  background: white;
+}
+
+.product-table tbody tr:nth-child(even) {
+  background: #f1f5f9;
+}
+
+.product-table tbody tr:hover {
+  background: #e0e7ff;
+}
+
+/* INPUT TABLA */
+.product-table input {
+  width: 90%;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #c7d2fe;
+}
+
+/* ====== BOTONES ====== */
 button.edit-btn {
-  background-color: #ffc107;
-  color: white;
-  border: none;
-  padding: 6px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-right: 5px;
-  width: 70px;
-  font-size: 12px;
+  background: #f59e0b;
 }
 
 button.save-btn {
-  background-color: #28a745;
-  color: white;
-  border: none;
-  padding: 6px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-right: 5px;
-  width: 70px;
-  font-size: 12px;
+  background: #10b981;
 }
 
 button.delete-btn {
-  background-color: #dc3545;
-  color: white;
+  background: #ef4444;
+}
+
+button {
   border: none;
   padding: 6px 10px;
-  border-radius: 5px;
+  border-radius: 6px;
+  color: white;
   cursor: pointer;
-  width: 70px;
-  font-size: 12px;
 }
 
-button.edit-btn:hover {
-  background-color: #e0a800;
+/* ====== SIDEBAR ====== */
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background: #1e1b4b;
+  color: white;
+  padding: 20px;
+  position: fixed;
 }
 
-button.save-btn:hover {
-  background-color: #218838;
+.sidebar li:hover {
+  background: #3730a3;
 }
 
-button.delete-btn:hover {
-  background-color: #c82333;
+/* ====== HEADER ====== */
+.header {
+  height: 60px;
+  background: white;
+  margin-left: 220px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  border-bottom: 1px solid #e5e7eb;
 }
 
-/* Inputs dentro de la tabla */
-.product-table input {
-  width: 80%;
-  padding: 5px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .header {
+    margin-left: 0;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
 }
-
-.form-error { color: #b40000; margin-top: 8px; text-align: center; }
-
-
-
