@@ -12,7 +12,7 @@ import Products from "./pages/Products";
 
 
 function App() {
-  const [recargar, setRecargar] = useState(false);
+ // const [recargar, setRecargar] = useState(false);
   //const actualizar = () => setRecargar(!recargar);
 
   return (
