@@ -1,19 +1,19 @@
 import "./App.css";
-import ProductForm from "./components/ProductForm";
+//import ProductForm from "./components/ProductForm";
 import { useState } from "react";
-import logomongo from "./assets/logomongo.png";
-import logoreact from "./assets/logoreact.png";
+//import logomongo from "./assets/logomongo.png";
+//import logoreact from "./assets/logoreact.png";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import ProductTable from "./components/ProductTable";
+//import ProductTable from "./components/ProductTable";
 import Dashboard from "./pages/Dashboard";
 import Products from "./pages/Products";
 
 
 function App() {
   const [recargar, setRecargar] = useState(false);
-  const actualizar = () => setRecargar(!recargar);
+  //const actualizar = () => setRecargar(!recargar);
 
   return (
 
