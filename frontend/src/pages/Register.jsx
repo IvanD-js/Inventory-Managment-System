@@ -20,7 +20,7 @@ export default function Register() {
     }
 
     try {
-      await api.post("http://localhost:5000/api/auth/register", form);
+      await api.post("/auth/register", form);
 
       setSuccess("Usuario registrado correctamente");
       setError("");
