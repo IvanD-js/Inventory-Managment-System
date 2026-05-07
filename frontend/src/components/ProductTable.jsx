@@ -75,7 +75,7 @@ export default function ProductTable({ refreshKey }) {
           </tr>
         </thead>
         <tbody>
-          {productos.map((p) => (
+          {productos?.map((p) => (
             <tr key={p._id}>
              
               {/* <td style={{ fontSize: 12 }}>{p._id}</td> */}
