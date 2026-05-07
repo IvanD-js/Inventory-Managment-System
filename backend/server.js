@@ -22,20 +22,19 @@ connectDB();
 
 app.get("/", (req, res) => res.json({ success: true, message: "API Tienda Productos" }));
 
+// --- RUTAS ORIGINALES (Funcionan perfecto en tu localhost) ---
 app.use("/api/productos", productoRoutes);
 app.use("/api/auth", authRoutes);
+
+// --- RUTAS DE RESCATE (Para Vercel si recorta el "/api") ---
+app.use("/productos", productoRoutes);
+app.use("/auth", authRoutes);
+
 // Middleware de manejo de errores (último)
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ success: false, message: "Error interno del servidor", error: err.message });
 });
-
-// app.get("/test-db", async (req, res) => {
-//   const users = await mongoose.connection.db.collection("users").find().toArray();
-//   res.json(users);
-// });
-
-
 
 app.get("/test-db", async (req, res) => {
   try {
@@ -46,5 +45,11 @@ app.get("/test-db", async (req, res) => {
   }
 });
 
+// Mantenemos el listen para tu entorno local
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Servidor corriendo en el puerto ${PORT}`));
+if (process.env.NODE_ENV !== "production") {
+  app.listen(PORT, () => console.log(`Servidor corriendo en el puerto ${PORT}`));
+}
+
+// EXPORTACIÓN OBLIGATORIA PARA VERCEL
+export default app;
